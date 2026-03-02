@@ -1,0 +1,35 @@
+/* Design tokens — maps to Tailwind v4 @theme */
+@theme {
+  /* Base backgrounds */
+  --color-bg-0:    hsl(222 38% 7%);
+  --color-bg-1:    hsl(222 32% 9%);
+  --color-panel:   hsl(222 24% 12%);
+  --color-panel-2: hsl(222 22% 14%);
+
+  /* Borders & text */
+  --color-border:  hsl(220 18% 18%);
+  --color-muted:   hsl(220 12% 60%);
+  --color-text:    hsl(210 25% 92%);
+
+  /* Accents */
+  --color-accent:   hsl(157 78% 42%);
+  --color-accent-2: hsl(200 85% 55%);
+
+  /* Status */
+  --color-success: hsl(145 70% 45%);
+  --color-danger:  hsl(0 72% 55%);
+  --color-warning: hsl(38 92% 55%);
+
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radii */
+  --radius-card:   16px;
+  --radius-btn:    12px;
+  --radius-chip:   999px;
+
+  /* Shadows */
+  --shadow-card:  0 8px 28px rgba(0,0,0,0.35);
+  --shadow-hover: 0 10px 34px rgba(0,0,0,0.45);
+}
