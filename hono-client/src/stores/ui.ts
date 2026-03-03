@@ -2,14 +2,6 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 
 export const useUiStore = defineStore('ui', () => {
-  // Mock user (swap with real auth later)
-  const user = ref({
-    name: 'Martin',
-    tier: 'Gold',
-    isAdmin: true,
-    avatar: null as string | null,
-  })
-
   // Market status
   const marketStatus = ref<'open' | 'closed'>('open')
   const marketCloseTime = ref('16:00:00')
@@ -31,7 +23,6 @@ export const useUiStore = defineStore('ui', () => {
   const marketOpen = computed(() => marketStatus.value === 'open')
 
   return {
-    user,
     marketStatus,
     marketOpen,
     marketCloseTime,

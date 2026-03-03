@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { useUiStore } from '@/stores/ui'
+import { useAuthStore } from '@/stores/auth'
 
 const router = useRouter()
 const ui     = useUiStore()
+const auth   = useAuthStore()
 
 function navigate(path: string) {
   router.push(path)
@@ -60,11 +62,11 @@ function navigate(path: string) {
         @click="navigate('/profile')"
       >
         <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-accent/20 text-accent text-xs font-bold" style="margin-left: 4px; margin-right: 0;">
-          {{ ui.user.name.charAt(0) }}
+          {{ auth.user?.username?.charAt(0)?.toUpperCase() ?? '?' }}
         </span>
-        <span class="text-sm font-medium text-text">{{ ui.user.name }}</span>
-        <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-warning/15 text-warning" style="padding-right: 6px; padding-left: 6px; margin-right: 4px;">
-          {{ ui.user.tier }}
+        <span class="text-sm font-medium text-text">{{ auth.user?.username ?? 'Guest' }}</span>
+        <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-accent/15 text-accent" style="padding-right: 6px; padding-left: 6px; margin-right: 4px;">
+          Trader
         </span>
       </button>
     </div>

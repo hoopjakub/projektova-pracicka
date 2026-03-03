@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { useUiStore } from '@/stores/ui'
+import { useAuthStore } from '@/stores/auth'
 
 const route  = useRoute()
 const router = useRouter()
 const ui     = useUiStore()
+const auth   = useAuthStore()
 
 interface NavItem { label: string; path: string; icon: string }
 
@@ -95,7 +97,7 @@ function navigate(path: string) {
     <div class="py-3 px-2 border-t border-border shrink-0">
       <ul class="flex flex-col gap-0.5">
         <!-- Admin — only if user is admin -->
-        <li v-if="ui.user.isAdmin">
+        <li v-if="false">
           <button
             class="group relative flex items-center gap-3 w-full h-11 px-3 transition-colors duration-150"
             :class="isActive('/admin') ? 'bg-accent/12 text-accent' : 'text-muted hover:text-text hover:bg-panel-2'"
@@ -134,6 +136,7 @@ function navigate(path: string) {
         <li>
           <button
             class="group relative flex items-center gap-3 w-full h-11 px-3 text-muted hover:text-danger hover:bg-danger/8 transition-colors duration-150"
+            @click="auth.logout()"
           >
             <span class="absolute left-0 top-2 bottom-2 w-[3px] bg-danger rounded-r opacity-0 group-hover:opacity-100 transition-opacity duration-150"/>
             <span class="shrink-0 flex items-center justify-center w-5 h-5" style="margin-left: 8px;">

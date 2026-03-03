@@ -28,13 +28,21 @@ const router = createRouter({
       path: '/auth',
       component: AuthLayout,
       children: [
-        { path: '',       component: () => import('@/pages/Login.vue'),    name: 'Login' },
-        { path: 'register', component: () => import('@/pages/Register.vue'), name: 'Register' },
+        { path: '',         component: () => import('@/pages/Login.vue'), name: 'Login' },
+        { path: 'register', redirect: '/auth' },
       ],
     },
     // Catch-all
     { path: '/:pathMatch(.*)*', redirect: '/dashboard' },
   ],
+})
+
+// Guard: protect all app routes — redirect to /auth if no token
+router.beforeEach((to) => {
+  const token = localStorage.getItem('token')
+  const isAuthRoute = to.path.startsWith('/auth')
+  if (!token && !isAuthRoute) return '/auth'
+  if (token && isAuthRoute) return '/dashboard'
 })
 
 export default router
