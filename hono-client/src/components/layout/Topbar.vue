@@ -37,7 +37,10 @@ function navigate(path: string) {
         {{ ui.marketOpen ? 'MARKET OPEN' : 'MARKET CLOSED' }}
       </span>
 
-      <span v-if="ui.marketOpen" class="text-sm font-mono text-muted">{{ ui.countdown }}</span>
+      <span class="text-xs text-muted">
+        {{ ui.marketOpen ? 'closes in' : 'opens in' }}
+      </span>
+      <span class="text-sm font-mono text-text tabular-nums">{{ ui.countdown }}</span>
 
       <span class="w-px h-4 bg-border"/>
 

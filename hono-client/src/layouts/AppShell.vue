@@ -1,7 +1,13 @@
 ﻿<script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
 import Sidebar   from '@/components/layout/Sidebar.vue'
 import Topbar    from '@/components/layout/Topbar.vue'
 import Bottombar from '@/components/layout/Bottombar.vue'
+import { useUiStore } from '@/stores/ui'
+
+const ui = useUiStore()
+onMounted(() => ui.startTicking())
+onUnmounted(() => ui.stopTicking())
 </script>
 
 <template>

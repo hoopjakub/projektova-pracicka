@@ -26,23 +26,23 @@ function formatChange(v: number) {
     <!-- Right: market indices -->
     <div class="flex items-center gap-5 text-xs font-mono" style="margin-right: 8px;">
       <span class="flex items-center gap-1.5">
-        <span class="text-muted">S&amp;P 500</span>
-        <span class="font-semibold" :class="ui.indices.sp500.change >= 0 ? 'text-success' : 'text-danger'">
-          {{ formatChange(ui.indices.sp500.change) }}
+        <span class="text-muted">{{ ui.indices.tech.label }}</span>
+        <span class="font-semibold" :class="ui.indices.tech.change >= 0 ? 'text-success' : 'text-danger'">
+          {{ formatChange(ui.indices.tech.change) }}
         </span>
       </span>
       <span class="w-px h-3 bg-border"/>
       <span class="flex items-center gap-1.5">
-        <span class="text-muted">NASDAQ</span>
-        <span class="font-semibold" :class="ui.indices.nasdaq.change >= 0 ? 'text-success' : 'text-danger'">
-          {{ formatChange(ui.indices.nasdaq.change) }}
+        <span class="text-muted">{{ ui.indices.fin.label }}</span>
+        <span class="font-semibold" :class="ui.indices.fin.change >= 0 ? 'text-success' : 'text-danger'">
+          {{ formatChange(ui.indices.fin.change) }}
         </span>
       </span>
       <span class="w-px h-3 bg-border"/>
       <span class="flex items-center gap-1.5">
-        <span class="text-muted">DOW</span>
-        <span class="font-semibold" :class="ui.indices.dow.change >= 0 ? 'text-success' : 'text-danger'">
-          {{ formatChange(ui.indices.dow.change) }}
+        <span class="text-muted">{{ ui.indices.allMkt.label }}</span>
+        <span class="font-semibold" :class="ui.indices.allMkt.change >= 0 ? 'text-success' : 'text-danger'">
+          {{ formatChange(ui.indices.allMkt.change) }}
         </span>
       </span>
     </div>

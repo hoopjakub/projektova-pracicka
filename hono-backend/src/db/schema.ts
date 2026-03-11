@@ -374,6 +374,7 @@ export function initSchema(db: InstanceType<typeof Database>) {
     `ALTER TABLE users ADD COLUMN profession    TEXT`,
     `ALTER TABLE users ADD COLUMN date_of_birth TEXT`,
     `ALTER TABLE users ADD COLUMN bio           TEXT`,
+    `ALTER TABLE game_clock ADD COLUMN season   INTEGER NOT NULL DEFAULT 1`,
   ]
   for (const sql of migrations) {
     try { db.exec(sql) } catch { /* column already exists */ }
